@@ -1,5 +1,12 @@
 import jsPDF from 'jspdf';
 
+const publicBaseUrl = import.meta.env.BASE_URL || '/';
+
+function getPublicAssetUrl(path: string): string {
+  const normalizedPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${publicBaseUrl}${normalizedPath}`;
+}
+
 async function fetchImageAsBase64(url: string): Promise<string | null> {
   try {
     const res = await fetch(url);
@@ -117,8 +124,8 @@ export async function generateAutistiPDF(report: AutistiChecklistReport, session
 
 
   
-  const customLogo = await fetchImageAsBase64('/logo-1.png');
-  const secondLogo = await fetchImageAsBase64('/logo-2.png');
+  const customLogo = await fetchImageAsBase64(getPublicAssetUrl('logo-1.png'));
+  const secondLogo = await fetchImageAsBase64(getPublicAssetUrl('logo-2.png'));
   if (customLogo) {
     try { doc.addImage(customLogo, 'PNG', 15, 5, 40, 14); } catch(e){}
   }
@@ -283,7 +290,7 @@ export async function generateAutistiPDF(report: AutistiChecklistReport, session
   
   
     const isAutomedica = report.vehicleCode?.toLowerCase().includes('automedica');
-    const carrozzeriaUrl = isAutomedica ? '/automedica.png' : '/ambulanza.png';
+    const carrozzeriaUrl = getPublicAssetUrl(isAutomedica ? 'automedica.png' : 'ambulanza.png');
     const carrozzeriaImg = await fetchImageAsBase64(carrozzeriaUrl);
 
   
