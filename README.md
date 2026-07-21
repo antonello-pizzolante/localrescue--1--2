@@ -1,20 +1,35 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# LocalRescue
 
-# Run and deploy your AI Studio app
+Applicazione web per la gestione operativa di soccorso e logistica, pensata per semplificare il lavoro di squadre e operatori.
 
-This contains everything you need to run your app locally.
+## Funzionalità principali
 
-View your app in AI Studio: https://ai.studio/apps/18d96624-9bd7-4d07-89dc-909575101109
+- gestione autisti e mezzi
+- form per sanitari e carrozzeria
+- dashboard con riepilogo dati
+- esportazione documenti e report
+- integrazione con Firebase, Drive e Gmail
 
-## Run Locally
+## Avvio locale
 
-**Prerequisites:**  Node.js
+Prerequisiti:
+- Node.js
+- npm
 
-
-1. Install dependencies:
+Passaggi:
+1. Installa le dipendenze:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+2. Avvia l’applicazione:
    `npm run dev`
+3. Apri l’indirizzo mostrato nel terminale
+
+## Pubblicazione online
+
+Il progetto è configurato per essere pubblicato tramite GitHub Pages.
+Ogni push sulla branch `main` attiva il deploy automatico.
+
+## Struttura principale
+
+- `src/` contiene l’applicazione React
+- `server.ts` gestisce il backend locale
+- `.github/workflows/deploy-pages.yml` configura il deploy automatico
