@@ -1,0 +1,36 @@
+{
+  "rules": {
+    "firestore": {
+      "autisti_reports": {
+        "description": "Reports for autisti",
+        "methods": {
+          "read": "true",
+          "create": "true",
+          "update": "true",
+          "delete": "true"
+        },
+        "fields": {}
+      },
+      "sanitari_reports": {
+        "description": "Reports for sanitari",
+        "methods": {
+          "read": "true",
+          "create": "true",
+          "update": "true",
+          "delete": "true"
+        },
+        "fields": {}
+      },
+      "deadlines": {
+        "description": "Deadlines for various tasks",
+        "methods": {
+          "read": "true",
+          "create": "true",
+          "update": "true",
+          "delete": "true"
+        },
+        "fields": {}
+      }
+    }
+  }
+}

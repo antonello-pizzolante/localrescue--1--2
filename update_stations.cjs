@@ -1,0 +1,78 @@
+const fs = require('fs');
+let dataContent = fs.readFileSync('src/data.ts', 'utf8');
+
+const oldPresetsMatch = `export const STATION_PRESETS = [
+    { name: 'Taranto Centro', service: 'Ospedale SS. Annunziata' },
+    { name: 'Taranto Sud', service: 'Presidio Territoriale Taranto Sud' },
+    { name: 'Taranto Nord', service: 'Poliambulatorio Taranto Nord' },
+    { name: 'Taranto Tamburi', service: 'Distretto Taranto Nord' },
+    { name: 'Taranto Talsano', service: 'Poliambulatorio Talsano' },
+    { name: 'Taranto Lama', service: 'Poliambulatorio Lama' },
+    { name: 'PPI 5 Taranto', service: 'Punto di Primo Intervento Taranto Sud' },
+    { name: 'Taranto Porto', service: 'Presidio Medico Portuale' },
+    { name: 'Martina Franca', service: 'Ospedale Valle d\\'Itria' },
+    { name: 'Grottaglie', service: 'Ospedale San Marco' },
+    { name: 'Manduria', service: 'Ospedale M. Giannuzzi' },
+    { name: 'Castellaneta', service: 'Ospedale S. Pio da Pietrelcina' },
+    { name: 'Massafra', service: 'Poliambulatorio Massafra' },
+    { name: 'Laterza', service: 'Poliambulatorio Laterza' },
+    { name: 'Ginosa', service: 'Poliambulatorio Ginosa' },
+    { name: 'Ginosa Marina', service: 'Presidio Territoriale Ginosa Marina' },
+    { name: 'Mottola', service: 'Presidio Territoriale di Assistenza (PTA)' },
+    { name: 'Palagiano', service: 'Poliambulatorio Palagiano' },
+    { name: 'Palagianello', service: 'Poliambulatorio Palagianello' },
+    { name: 'Crispiano', service: 'Poliambulatorio Crispiano' },
+    { name: 'Statte', service: 'Poliambulatorio Statte' },
+    { name: 'Pulsano', service: 'Poliambulatorio Pulsano' },
+    { name: 'Leporano', service: 'Presidio Territoriale Leporano' },
+    { name: 'San Giorgio Ionico', service: 'Poliambulatorio San Giorgio Ionico' },
+    { name: 'Lizzano', service: 'Poliambulatorio Lizzano' },
+    { name: 'Sava', service: 'Poliambulatorio Sava' },
+    { name: 'Maruggio', service: 'Presidio Territoriale Maruggio' },
+    { name: 'Torricella', service: 'Presidio Territoriale Torricella' },
+    { name: 'Avetrana', service: 'Poliambulatorio Avetrana' },
+    { name: 'Fragagnano', service: 'Presidio Territoriale Fragagnano' },
+    { name: 'San Marzano', service: 'Punto 118 San Marzano di San Giuseppe' },
+    { name: 'Carosino', service: 'Presidio Territoriale Carosino' },
+    { name: 'Montemesola', service: 'Poliambulatorio Montemesola' },
+    { name: 'Monteiasi', service: 'Poliambulatorio Monteiasi' },
+    { name: 'Faggiano', service: 'Presidio Territoriale Faggiano' },
+    { name: 'Roccaforzata', service: 'Presidio Territoriale Roccaforzata' },
+    { name: 'Castellaneta Marina', service: 'Presidio Estivo Castellaneta Marina' }
+];`;
+
+const newPresets = `export const STATION_PRESETS = [
+    { name: 'INDIA CENTRO', service: 'TARANTO CENTRO' },
+    { name: 'INDIA SUD', service: 'TARANTO SUD' },
+    { name: 'PPI 1 MASSAFRA', service: 'MASSAFRA' },
+    { name: 'GINOSA', service: 'GINOSA' },
+    { name: 'GINOSA MARINA', service: 'GINOSA MARINA' },
+    { name: 'SAVA', service: 'SAVA' },
+    { name: 'INDIA NORD', service: 'TARANTO NORD' },
+    { name: 'INDIA MARTINA', service: 'MARTINA FRANCA' },
+    { name: 'INDIA CRISPIANO', service: 'CRISPIANO' },
+    { name: 'PULSANO', service: 'PULSANO' },
+    { name: 'PPI6 GROTTAGLIE', service: 'GROTTAGLIE' },
+    { name: 'MANDURIA', service: 'MANDURIA' },
+    { name: 'CASTELLANETA', service: 'CASTELLANETA' },
+    { name: 'LATERZA', service: 'LATERZA' },
+    { name: 'MOTTOLA', service: 'MOTTOLA' },
+    { name: 'INDIA TALSANO', service: 'TALSANO' },
+    { name: 'TARANTO PORTO', service: 'TARANTO' },
+    { name: 'TAMBURI', service: 'STATTE' },
+    { name: 'PALAGIANO', service: 'PALAGIANO' },
+    { name: 'SAN GIORGIO', service: 'SAN GIORGIO' },
+    { name: 'SAN MARZANO', service: 'SAN MARZANO' },
+    { name: 'TORRICELLA', service: 'TORRICELLA' },
+    { name: 'AVETRANA', service: 'AVETRANA' },
+    { name: 'MONTEMESOLA', service: 'MONTEMESOLA' },
+    { name: 'BLS SAN PAOLO', service: 'SAN PAOLO' },
+    { name: 'PPI5', service: 'TARANTO' },
+    { name: 'AUTOMEDICA NORD', service: 'NORD' },
+    { name: 'AUTOMEDICA SUD', service: 'PULSANO' },
+    { name: 'AUTOMEDICA MARTINA FRANCA', service: 'MARTINA FRANCA' }
+];`;
+
+dataContent = dataContent.replace(oldPresetsMatch, newPresets);
+fs.writeFileSync('src/data.ts', dataContent);
+

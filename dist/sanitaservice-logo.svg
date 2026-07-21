@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" width="900" height="280">
+  <!-- "Sanitaservice" in orange, serif -->
+  <text x="30" y="140" font-family="Georgia, 'Times New Roman', serif" font-size="130" fill="#df6b3b" letter-spacing="1">Sanitaservice</text>
+  <!-- "ASL TA s.r.l. Unipersonale" in black, serif -->
+  <text x="35" y="215" font-family="Georgia, 'Times New Roman', serif" font-size="55" fill="#111111" letter-spacing="1">ASL TA s.r.l. Unipersonale</text>
+  
+  <!-- Swoosh shapes on the right -->
+  <g transform="translate(680, 50)">
+    <path d="M-80,120 C 50,150 180,-10 200,-10 C 180,60 140,120 -50,170 Z" fill="#9eb0ad"/>
+    <path d="M-50,135 C 70,165 210,0 210,0 C 170,90 120,135 -30,175 Z" fill="#ffffff" opacity="0.7"/>
+    <path d="M20,150 C 90,170 200,40 200,40 C 160,110 110,140 -20,185 Z" fill="#9eb0ad" opacity="0.8"/>
+  </g>
+</svg>
