@@ -1,0 +1,36 @@
+
+  // Damages summary
+  y += 6;
+  doc.setFillColor(239, 68, 68); // Red
+  doc.rect(12, y, 186, 6, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFont('Helvetica', 'bold');
+  doc.text('RILIEVO ANOMALIE CARROZZERIA', 15, y + 4);
+  
+  y += 6;
+  doc.setTextColor(51, 65, 85);
+  doc.setFont('Helvetica', 'normal');
+  doc.setFontSize(7.5);
+
+  if (report.damages.length === 0) {
+    doc.text('Nessuna anomalia o graffio riscontrato sulla carrozzeria del veicolo.', 15, y + 5);
+    y += 8;
+  } else {
+    report.damages.forEach((d) => {
+      doc.setFont('Helvetica', 'bold');
+      doc.text(`${d.type === 'O' ? 'AMMACCATURA [O]' : 'GRAFFIO [X]'} su ${d.part}:`, 15, y + 4);
+      doc.setFont('Helvetica', 'normal');
+      doc.text(`"${d.description}"`, 80, y + 4);
+      y += 5;
+    });
+    y += 2;
+  }
+
+  // Notes
+  if (report.notes) {
+    doc.setFillColor(254, 243, 199); // amber-100
+    doc.rect(12, y, 186, 12, 'F');
+    doc.setTextColor(146, 64, 14); // amber-800
+    doc.setFont('Helvetica', 'bold');
+    doc.text('NOTE RILEVATE OPERATORI:', 15, y + 4.5);
+    doc.setFont('Helvetica', 'normal');

@@ -1,0 +1,6 @@
+{
+  "name": "LocalRescue",
+  "description": "Applicazione professionale per la compilazione rapida e l'esportazione delle checklist digitali per Sanitari ed Autisti Soccorritori di Taranto Soccorso e Sanitàservice.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
