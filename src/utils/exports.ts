@@ -117,8 +117,9 @@ export async function generateAutistiPDF(report: AutistiChecklistReport, session
 
 
   
-  const customLogo = await fetchImageAsBase64('/logo-1.png');
-  const secondLogo = await fetchImageAsBase64('/logo-2.png');
+  const publicBaseUrl = import.meta.env.BASE_URL;
+  const customLogo = await fetchImageAsBase64(`${publicBaseUrl}logo-1.png`);
+  const secondLogo = await fetchImageAsBase64(`${publicBaseUrl}logo-2.png`);
   if (customLogo) {
     try { doc.addImage(customLogo, 'PNG', 15, 5, 40, 14); } catch(e){}
   }
@@ -283,7 +284,7 @@ export async function generateAutistiPDF(report: AutistiChecklistReport, session
   
   
     const isAutomedica = report.vehicleCode?.toLowerCase().includes('automedica');
-    const carrozzeriaUrl = isAutomedica ? '/automedica.png' : '/ambulanza.png';
+    const carrozzeriaUrl = isAutomedica ? `${import.meta.env.BASE_URL}automedica.png` : `${import.meta.env.BASE_URL}ambulanza.png`;
     const carrozzeriaImg = await fetchImageAsBase64(carrozzeriaUrl);
 
   

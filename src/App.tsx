@@ -541,7 +541,7 @@ export default function App() {
             <div className="flex items-center justify-center sm:justify-start mt-2 border-t border-white/5 pt-4">
                {/* Il logo fornito dall'utente. Assicurati di caricare il file immagine in "public/footer-logo.png" */}
                <img 
-                 src="/footer-logo.png" 
+                 src={`${import.meta.env.BASE_URL}footer-logo.png`} 
                  alt="Produced by Action Minds, Designed by Antonello Pizzolante & Mirko Serio" 
                  className="h-8 object-contain opacity-90 hover:opacity-100 transition-opacity"
                />
