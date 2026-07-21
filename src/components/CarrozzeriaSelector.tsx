@@ -20,7 +20,8 @@ export default function CarrozzeriaSelector({ markers, onChange }: CarrozzeriaSe
   
 
     
-  const currentBgImage = vehicleType === "automedica" ? "/automedica.png" : "/ambulanza.png";
+  const baseUrl = import.meta.env.BASE_URL;
+  const currentBgImage = vehicleType === "automedica" ? `${baseUrl}automedica.png` : `${baseUrl}ambulanza.png`;
   
   const fileInputRefs = useRef<{ [key: string]: HTMLInputElement | null }>({});
 
@@ -176,7 +177,7 @@ const resizeImage = (dataUrl: string, maxDim: number = 800): Promise<string> => 
             
             {/* Single Diagram Background */}
             <div className="absolute inset-0 flex items-center justify-center overflow-hidden group bg-slate-900/50">
-              <img src={currentBgImage || (vehicleType === "automedica" ? "/automedica.png" : "/ambulanza.png")} alt="Diagramma" className="w-full h-full object-contain select-none pointer-events-none opacity-80" />
+              <img src={currentBgImage || (vehicleType === "automedica" ? `${baseUrl}automedica.png` : `${baseUrl}ambulanza.png`)} alt="Diagramma" className="w-full h-full object-contain select-none pointer-events-none opacity-80" />
               
             </div>
 
